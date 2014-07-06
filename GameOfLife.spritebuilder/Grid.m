@@ -7,7 +7,7 @@
 //
 
 #import "Grid.h"
-#import "Creatures.h"
+#import "Creature.h"
 
 // these are variables that cannot be changed
 static const int GRID_ROWS = 8;
@@ -48,16 +48,16 @@ static const int GRID_COLUMNS = 10;
         x = 0;
         
         for (int j = 0; j < GRID_COLUMNS; j++) {
-            Creatures *creatures = [[Creatures alloc] initCreature];
-            creatures.anchorPoint = ccp(0, 0);
-            creatures.position = ccp(x, y);
-            [self addChild:creatures];
+            Creature *creature = [[Creature alloc] initCreature];
+            creature.anchorPoint = ccp(0, 0);
+            creature.position = ccp(x, y);
+            [self addChild:creature];
             
             // this is shorthand to access an array inside an array
-            _gridArray[i][j] = creatures;
+            _gridArray[i][j] = creature;
             
             // make creatures visible to test this method, remove this once we know we have filled the grid properly
-            creatures.isAlive = YES;
+            creature.isAlive = YES;
             
             x+=_cellWidth;
         }
